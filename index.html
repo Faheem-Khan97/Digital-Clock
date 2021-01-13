@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>clock</title>
+
+    <style>
+        body{
+     
+            background: linear-gradient(to right, rgb(58, 51, 39), rgb(252, 178, 41));
+            padding: 30vh 30%;
+      
+        }
+        div.digital{
+            
+            background: linear-gradient(to right, rgb(58, 51, 39), rgb(252, 178, 41));
+            border-radius: 20%;
+            margin: auto;
+            text-align: center;
+            padding: 3vh 10px;
+            display: none;
+         
+        }
+        div.digital h1{
+
+            color: antiquewhite;
+            font-size: 44px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="digital">
+
+
+        <h1 class="showclock">
+
+        </h1>
+
+    </div>
+   
+</body>
+<script>
+
+
+    let headShow= document.querySelector('.showclock');
+    let divDigital = document.querySelector('.digital');
+
+
+
+
+    setInterval(() => {
+       
+        divDigital.style.display = 'block';
+    
+        let date = new Date();
+    
+        let hr = date.getHours();
+        
+        let min = date.getMinutes();
+     
+        
+        let sec = date.getSeconds();
+
+        hr = hr>9? hr: "0"+ hr
+        min = min>9? min: "0"+ min;
+        sec = sec>9? sec: "0"+sec
+
+        
+
+        console.log(`${hr}:${min}:${sec}`);
+
+        headShow.textContent = `${hr}:${min}:${sec}`;
+        
+    
+    
+    }, 1000);
+    
+    
+    </script>
+</html>
